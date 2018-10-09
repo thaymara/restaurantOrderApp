@@ -40,16 +40,42 @@ export class OrderFormComponent implements OnInit {
       this.errorMessage = `You must enter a valid input: a period of the time
         and the dishes separated by comma.`;
     } else {
-      this.order = new Order();
-      this.order.setDayPeriod(period[0]);
-      this.order.setInputOrder(this.orderInput);
-      this.order.setDishes(this.orderFormService.checkOrder(this.order.getdayPeriod(), orderSplitted.slice(1)));
-      this.orderOutput = this.order.getDishes();
-      this.onGetOrderOutput(this.order);
+      let isDuplicated = this.checkDuplicated(period[0], orderSplitted.slice(1));
+
+      if(isDuplicated) {
+        this.errorMessage = `You only can order 1 of each dish type.
+          Exceptions: In the morning, you can order multiple cups of coffee;
+          At night, you can have multiple orders of potatoes.`
+      } else {
+        this.sendOrder(period[0], orderSplitted.slice(1));
+      }
     }
   }
 
   checkPeriod(order: string) {
     return order.toLowerCase() === 'morning' || order.toLowerCase() === 'night';
+  }
+
+  checkDuplicated(period, dishes) {
+    for (var i = 0; i < dishes.length - 1; i++) {
+      if (period === 'morning') {
+        if (dishes[i + 1] === dishes[i] && dishes[i] != '3') {
+          return true;
+        }
+      } else {
+        if (dishes[i + 1] === dishes[i] && dishes[i] != '2') {
+          return true;
+        }
+      }
+    }
+  }
+
+  sendOrder(period, dishes) {
+    this.order = new Order();
+    this.order.setDayPeriod(period);
+    this.order.setInputOrder(this.orderInput);
+    this.order.setDishes(this.orderFormService.checkOrder(this.order.getdayPeriod(), dishes));
+    this.orderOutput = this.order.getDishes();
+    this.onGetOrderOutput(this.order);
   }
 }
