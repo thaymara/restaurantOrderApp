@@ -17,7 +17,7 @@ export class Order {
   }
 
   public getInputOrder() {
-    return this.inputOrder
+    return this.inputOrder;
   }
 
   public setInputOrder(inputOrder) {

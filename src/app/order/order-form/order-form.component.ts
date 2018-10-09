@@ -30,12 +30,13 @@ export class OrderFormComponent implements OnInit {
   }
 
   createOrder() {
+    this.errorMessage = "";
     this.orderInput = this.orderInput.toLowerCase();
-    let orderSplitted = this.orderInput.replace(/\s/g, "").split(',');
+    let orderSplitted = this.orderInput.replace(/\s/g, '').split(',');
     let period = orderSplitted.filter(a => a === 'morning' || a === 'night');
     let periodIndex = orderSplitted.findIndex(this.checkPeriod);
 
-    if(period.length > 1 || periodIndex != 0) {
+    if (period.length > 1 || periodIndex != 0) {
       this.errorMessage = `You must enter a valid input: a period of the time
         and the dishes separated by comma.`;
     } else {

@@ -17,9 +17,9 @@ export class GridResultsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    for(let prop in changes) {
-      if(prop === 'output') {
-        if(changes[prop].currentValue != undefined) {
+    for (let prop in changes) {
+      if (prop === 'output') {
+        if (changes[prop].currentValue !== undefined) {
           this.orderArray.unshift(changes[prop].currentValue);
         }
       }

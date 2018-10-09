@@ -16,7 +16,7 @@
     background-image: none;
     border-top: none;
     border-right: none;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid color(base-colors, _grey-three);
     border-left: none;
   }
 
@@ -28,22 +28,22 @@
 
   input {
     &:focus {
-      outline: none;
       border-bottom-color: color(base-colors, _purple);
+      outline: none;
     }
   }
 
   .button {
-    height: 36px;
     width: 150px;
-    font-weight: 600;
+    height: 36px;
     margin: 10px 0 50px;
-    -webkit-appearance: button-bevel;
+    font-weight: 600;
     cursor: pointer;
+    -webkit-appearance: button-bevel;
 
     &--send {
-      background-color: color(base-colors, _purple);
       color: color(base-colors, _white);
+      background-color: color(base-colors, _purple);
 
       &:active {
         background-color: color(base-colors, _purple);

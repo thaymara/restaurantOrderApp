@@ -8,18 +8,18 @@
   }
 
   h2 {
-    font-size: 1.3em;
-    color: color(base-colors, _purple);
     margin-bottom: 25px;
-    text-align: center;
+    font-size: 1.3em;
     font-weight: 600;
+    color: color(base-colors, _purple);
+    text-align: center;
   }
 
   table,
   th,
   td {
-    border: 1px solid color(base-colors, _black);
     line-height: 2em;
+    border: 1px solid color(base-colors, _black);
   }
 
   td {

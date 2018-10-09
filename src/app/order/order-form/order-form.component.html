@@ -1,6 +1,6 @@
 <form class="order__form"
   #orderForm="ngForm"
-  (ngSubmit)="onSubmit(); orderForm.reset()">
+  (ngSubmit)="onSubmit()">
   <div class="order__form--group" [ngClass]="{'has-error': errorMessage}">
     <label for="order_input" >
       Input
