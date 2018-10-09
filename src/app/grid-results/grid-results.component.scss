@@ -1,0 +1,32 @@
+@import './src/styles/_variables.scss';
+
+.grid-results__section {
+  margin-top: 50px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 1.3em;
+    color: color(base-colors, _purple);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid color(base-colors, _black);
+    line-height: 2em;
+  }
+
+  td {
+    padding: 0 10px;
+  }
+
+  thead {
+    font-weight: 700;
+  }
+}

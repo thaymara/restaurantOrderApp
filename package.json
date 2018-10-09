@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "sass-lint": "sass-lint -c .sass-lint.yml -v -q",
+    "lint": "npm run saas-lint && ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -22,6 +23,7 @@
     "@angular/router": "^6.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.2.0",
+    "sass-lint": "^1.12.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
